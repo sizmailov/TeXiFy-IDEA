@@ -26,6 +26,12 @@ class LatexCodeStyleSettingsProvider : CodeStyleSettingsProvider() {
 
                 return object : TabbedLanguageCodeStylePanel(language, currentSettings, settings) {
 
+                    override fun addWrappingAndBracesTab(settings: CodeStyleSettings?) {
+                        addTab(object : MyWrappingAndBracesPanel(settings) {
+                            // Remove "Braces" from tab title
+                            override fun getTabTitle() = "Wrapping"
+                        })
+                    }
                 }
             }
 

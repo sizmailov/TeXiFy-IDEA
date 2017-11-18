@@ -5,7 +5,6 @@ import com.intellij.formatting.Block;
 import com.intellij.formatting.ChildAttributes;
 import com.intellij.formatting.Indent;
 import com.intellij.formatting.Spacing;
-import com.intellij.formatting.SpacingBuilder;
 import com.intellij.formatting.Wrap;
 import com.intellij.formatting.WrapType;
 import com.intellij.lang.ASTNode;
@@ -24,11 +23,12 @@ import java.util.List;
  */
 public class LatexBlock extends AbstractBlock {
 
-    private SpacingBuilder spacingBuilder;
+    private LatexSpacingBuilder spacingBuilder;
 
     protected LatexBlock(@NotNull ASTNode node, @Nullable Wrap wrap, @Nullable Alignment
-            alignment, SpacingBuilder spacingBuilder) {
+            alignment, LatexSpacingBuilder spacingBuilder) {
         super(node, wrap, alignment);
+
         this.spacingBuilder = spacingBuilder;
     }
 
