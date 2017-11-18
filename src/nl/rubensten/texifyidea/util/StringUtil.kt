@@ -95,3 +95,12 @@ fun String.removeIndents() = Magic.Pattern.newline.split(this)
         .toList()
         .removeIndents()
         .joinToString("\n")
+
+/**
+ * Removes HTML tags from the string.
+ *
+ * @return The string with HTML tags removed.
+ *
+ * @see [Magic.Pattern.htmlTag]
+ */
+fun String.removeHtmlTags() = this.replace(Magic.Pattern.htmlTag.toRegex(), "")

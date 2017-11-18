@@ -303,6 +303,8 @@
         <!-- Settings -->
         <colorSettingsPage implementation="nl.rubensten.texifyidea.highlighting.LatexColorSettingsPage"/>
         <colorSettingsPage implementation="nl.rubensten.texifyidea.highlighting.BibtexColorSettingsPage"/>
+        <codeStyleSettingsProvider implementation="nl.rubensten.texifyidea.settings.LatexCodeStyleSettingsProvider"/>
+        <langCodeStyleSettingsProvider implementation="nl.rubensten.texifyidea.settings.LatexLanguageCodeStyleSettingsProvider"/>
 
         <!-- Languages -->
         <lang.parserDefinition language="Latex" implementationClass="nl.rubensten.texifyidea.LatexParserDefinition"/>
