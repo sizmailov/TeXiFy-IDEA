@@ -6,7 +6,6 @@ import com.intellij.formatting.ChildAttributes;
 import com.intellij.formatting.Indent;
 import com.intellij.formatting.Spacing;
 import com.intellij.formatting.Wrap;
-import com.intellij.formatting.WrapType;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.formatter.common.AbstractBlock;
@@ -24,12 +23,14 @@ import java.util.List;
 public class LatexBlock extends AbstractBlock {
 
     private LatexSpacingBuilder spacingBuilder;
+    private LatexWrappingStrategy wrappingStrategy;
 
     protected LatexBlock(@NotNull ASTNode node, @Nullable Wrap wrap, @Nullable Alignment
-            alignment, LatexSpacingBuilder spacingBuilder) {
+            alignment, LatexSpacingBuilder spacingBuilder, LatexWrappingStrategy wrappingStrategy) {
         super(node, wrap, alignment);
 
         this.spacingBuilder = spacingBuilder;
+        this.wrappingStrategy = wrappingStrategy;
     }
 
     @Override
@@ -41,9 +42,10 @@ public class LatexBlock extends AbstractBlock {
             if (child.getElementType() != TokenType.WHITE_SPACE) {
                 Block block = new LatexBlock(
                         child,
-                        Wrap.createWrap(WrapType.NONE, false),
+                        wrappingStrategy.getWrap(child),
                         null,
-                        spacingBuilder
+                        spacingBuilder,
+                        wrappingStrategy
                 );
                 blocks.add(block);
             }

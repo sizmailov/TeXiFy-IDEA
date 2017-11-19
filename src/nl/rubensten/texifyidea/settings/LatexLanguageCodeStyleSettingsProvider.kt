@@ -49,8 +49,7 @@ class LatexLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider
                 RIGHT_MARGIN,
                 WRAP_ON_TYPING,
                 WRAP_LONG_LINES,
-                KEEP_FIRST_COLUMN_COMMENT,
-                WRAP_COMMENTS
+                KEEP_FIRST_COLUMN_COMMENT
         ).map { it.name }.toTypedArray())
     }
 

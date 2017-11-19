@@ -26,6 +26,11 @@ class LatexCodeStyleSettingsProvider : CodeStyleSettingsProvider() {
 
                 return object : TabbedLanguageCodeStylePanel(language, currentSettings, settings) {
 
+                    override fun initTabs(settings: CodeStyleSettings?) {
+                        addIndentOptionsTab(settings)
+                        addWrappingAndBracesTab(settings)
+                    }
+
                     override fun addWrappingAndBracesTab(settings: CodeStyleSettings?) {
                         addTab(object : MyWrappingAndBracesPanel(settings) {
                             // Remove "Braces" from tab title

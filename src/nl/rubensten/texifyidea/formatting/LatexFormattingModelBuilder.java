@@ -28,7 +28,8 @@ public class LatexFormattingModelBuilder implements FormattingModelBuilder {
                         element.getNode(),
                         Wrap.createWrap(WrapType.NONE, false),
                         Alignment.createAlignment(),
-                        LatexSpacingRulesKt.createSpacingBuilder(settings)
+                        LatexSpacingRulesKt.createSpacingBuilder(settings),
+                        new LatexWrappingStrategy(settings)
                 ),
                 settings
         );
