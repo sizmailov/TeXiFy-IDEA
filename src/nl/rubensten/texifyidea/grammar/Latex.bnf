@@ -16,6 +16,7 @@
         WHITE_SPACE='regexp:\s+'
         DISPLAY_MATH_START='\['
         DISPLAY_MATH_END='\]'
+        DOUBLE_DOLLAR='$$'
         INLINE_MATH_START='regexp:($|\\\()'
         INLINE_MATH_END='regexp:($|\\\))'
         BEGIN_TOKEN='\begin'
@@ -63,6 +64,7 @@ math_environment ::= inline_math | display_math
 
 inline_math ::= INLINE_MATH_START math_content? INLINE_MATH_END
 
-display_math ::= DISPLAY_MATH_START math_content? DISPLAY_MATH_END
+display_math ::= DISPLAY_MATH_START math_content? DISPLAY_MATH_END |
+                 "$$" math_content? "$$"
 
 math_content ::= no_math_content+

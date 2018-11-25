@@ -54,6 +54,7 @@ public interface LatexTypes {
   IElementType COMMENT_TOKEN = new LatexTokenType("COMMENT_TOKEN");
   IElementType DISPLAY_MATH_END = new LatexTokenType("\\]");
   IElementType DISPLAY_MATH_START = new LatexTokenType("\\[");
+  IElementType DOUBLE_DOLLAR = new LatexTokenType("$$");
   IElementType END_TOKEN = new LatexTokenType("\\end");
   IElementType INLINE_MATH_END = new LatexTokenType("INLINE_MATH_END");
   IElementType INLINE_MATH_START = new LatexTokenType("INLINE_MATH_START");
@@ -68,7 +69,7 @@ public interface LatexTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == BEGIN_COMMAND) {
+      if (type == BEGIN_COMMAND) {
         return new LatexBeginCommandImpl(node);
       }
       else if (type == COMMANDS) {
